@@ -1,7 +1,7 @@
 import React from 'react';
 // import $ from 'jquery';
 import '../css/textOverImage.css';
-import { CreateImage } from '../helper/CreateImage.jsx';
+import '../css/img_modal.css';
 
 import InfiniteCarousel from 'react-leaf-carousel';
 
@@ -24,8 +24,36 @@ class Portfolio extends React.Component {
         super(props);
         this.state = {
             img_info: null,
-            curImg: null
+            currImg: null,
+            currDetail: null
         };
+        this.CreateImage = this.CreateImage.bind(this);
+    }
+
+    CreateImage(imageURL, detail, height){
+
+        const imgStyle = {
+            backgroundImage: 'url(' + imageURL + ')',
+            height: height,
+        };
+
+        const dataText =
+            detail.title+'\n\n'+
+            detail.ctgry+'\n'+
+            detail.date+'\n'+
+            detail.media+'\n'+
+            detail.info;
+    
+        return(
+            <div
+            data-toggle="modal" data-target="#exampleModalCenter"
+            onClick={() => this.setCurr(imageURL, detail)}>
+                <div class="textOverImage" 
+                    style={imgStyle}
+                    data-text={dataText} >
+                </div>
+            </div>
+        );
     }
 
     componentDidMount() {
@@ -33,15 +61,19 @@ class Portfolio extends React.Component {
             this.setState({ img_info });
         });
     }
-    setImage = (url) => {
-        this.setState({ curImg: url })
+
+    setCurr = (url, detail) => {
+
+        this.setState({ currImg: url, currDetail: detail})
     }
 
     /* leaf carousel */
     render() {
-        const { curImg } = this.state;
-        const { img_info } = this.state;
+        let { currImg, img_info, currDetail } = this.state;
         if (img_info) {
+            if (!currDetail){
+                currDetail = img_info[0];
+            }
             return (
                 <div style={{ paddingBottom: '100px' }}>
                     <h2
@@ -70,35 +102,33 @@ class Portfolio extends React.Component {
                         scrollOnDevice={true}
                         autoCycle={true}
                     >
-                        <div>
-                            {CreateImage(img0, img_info[0], 450)}
-                            <button type="button" class="btn btn-primary"
-                                data-toggle="modal" data-target="#exampleModalCenter"
-                                onClick={() => this.setImage(img0)}>
-                                Launch demo modal
-                            </button>
-                        </div>
-                        {CreateImage(img1, img_info[1], 450)}
-                        {CreateImage(img2, img_info[2], 450)}
-                        {CreateImage(img3, img_info[3], 450)}
-                        {CreateImage(img4, img_info[4], 450)}
-                        {CreateImage(img5, img_info[5], 450)}
-                        {CreateImage(img6, img_info[6], 450)}
-                        {CreateImage(img7, img_info[7], 450)}
-                        {CreateImage(img8, img_info[8], 450)}
-                        {CreateImage(img9, img_info[9], 450)}
+                        {this.CreateImage(img0, img_info[0], 450)}
+                        {this.CreateImage(img1, img_info[1], 450)}
+                        {this.CreateImage(img2, img_info[2], 450)}
+                        {this.CreateImage(img3, img_info[3], 450)}
+                        {this.CreateImage(img4, img_info[4], 450)}
+                        {this.CreateImage(img5, img_info[5], 450)}
+                        {this.CreateImage(img6, img_info[6], 450)}
+                        {this.CreateImage(img7, img_info[7], 450)}
+                        {this.CreateImage(img8, img_info[8], 450)}
+                        {this.CreateImage(img9, img_info[9], 450)}
                     </InfiniteCarousel>
 
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-body container">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </div>
-                                <div class="modal-body container">
-                                    <img class="img-responsive" src={curImg} style={{maxHeight:'80vh'}}></img>
+                                    <img class="img-responsive" src={currImg} style={{maxHeight:'80vh'}}/>
+                                    <p>
+                                        {currDetail.title}<br/>
+                                        {currDetail.ctgry}<br/>
+                                        {currDetail.date}<br/>
+                                        {currDetail.media}<br/>
+                                        {currDetail.info}<br/>
+                                    </p>
                                 </div>
                             </div>
                         </div>
