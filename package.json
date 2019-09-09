@@ -3,9 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.4.0",
+    "@material-ui/icons": "^4.2.1",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
     "react": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-leaf-carousel": "^1.2.2",
+    "react-player": "^1.12.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "react-vertical-timeline-component": "^2.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,5 +37,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://139.198.126.96:8289",
+  "homepage": "http://myhost/personal"
 }
