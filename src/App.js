@@ -10,7 +10,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/personal/main" component={Main} />
               <Route path="/personal/login" component={Login} />
-              <Route component={() => <Redirect to={"/personal/login"} />} />
+              <Route component={() => <Redirect to={"/personal/main"} />} />
             </Switch>
           </Router>
         );
