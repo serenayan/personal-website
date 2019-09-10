@@ -8,7 +8,7 @@ import Home from './Home';
 import Project from './Project';
 import About from './About';
 
-import $ from 'jquery';
+import '../css/sticky-footer.css';
 
 class Main extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class='main-container'>
                 <div className='row'>
                     <nav className='fixed-top'>
                         <ul>
