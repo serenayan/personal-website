@@ -8,9 +8,9 @@ class App extends React.Component {
         return (
           <Router>
             <Switch>
-              <Route path="/personal/main" component={Main} />
-              <Route path="/personal/login" component={Login} />
-              <Route component={() => <Redirect to={"/personal/main"} />} />
+              <Route path="/main" component={Main} />
+              <Route path="/login" component={Login} />
+              <Route component={() => <Redirect to={"/main"} />} />
             </Switch>
           </Router>
         );
