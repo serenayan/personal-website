@@ -24,7 +24,7 @@ class Home extends React.Component {
                 <div class="hero-text">
                     <h1>I am Serena Yan</h1>
                     <p>I'm a Programmer, Game Designer, and Artist</p>
-                    <NavLink to="/personal-website/personal/main/about" 
+                    <NavLink to="/personal-website/main/about" 
                             className="btn btn-outline-light" 
                             role="button">
                                 About me</NavLink>
