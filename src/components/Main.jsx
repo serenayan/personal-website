@@ -21,15 +21,15 @@ class Main extends React.Component {
                 <div className='row'>
                     <nav className='fixed-top'>
                         <ul>
-                            <NavLink to="/main/home" className="tab">
+                            <NavLink to="/personal-website/main/home" className="tab">
                                 home</NavLink>
-                            <NavLink to="/main/portfolio" className="tab">
+                            <NavLink to="/personal-website/main/portfolio" className="tab">
                                 portfolio</NavLink>
-                            <NavLink to="/main/project" className="tab">
+                            <NavLink to="/personal-website/main/project" className="tab">
                                 project</NavLink>
-                            <NavLink to="/main/about" className="tab">
+                            <NavLink to="/personal-website/main/about" className="tab">
                                 about</NavLink>
-                            <NavLink to="/main/connect" className="tab">
+                            <NavLink to="/personal-website/main/connect" className="tab">
                                 connect</NavLink>
                             </ul>
                     </nav>
@@ -39,12 +39,12 @@ class Main extends React.Component {
                 {/* <div style={{clear:'both'}}></div> */}
                 <div style={{height:'100%'}}>
                     <Switch>
-                        <Route path="/main/home" component={Home} />
-                        <Route path="/main/Connect" component={Connect} />
-                        <Route path="/main/portfolio" component={Portfolio} />
-                        <Route path="/main/project" component={Project} />
-                        <Route path="/main/about" component={About} />
-                        <Route component={() => <Redirect to={"/main/home"} />} />
+                        <Route path="/personal-website/main/home" component={Home} />
+                        <Route path="/personal-website/main/Connect" component={Connect} />
+                        <Route path="/personal-website/main/portfolio" component={Portfolio} />
+                        <Route path="/personal-website/main/project" component={Project} />
+                        <Route path="/personal-website/main/about" component={About} />
+                        <Route component={() => <Redirect to={"/personal-website/main/home"} />} />
                     </Switch>
                 </div>
 

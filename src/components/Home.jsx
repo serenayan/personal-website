@@ -24,12 +24,12 @@ class Home extends React.Component {
                 <div class="hero-text">
                     <h1>I am Serena Yan</h1>
                     <p>I'm a Programmer, Game Designer, and Artist</p>
-                    <NavLink to="/personal/main/about" 
+                    <NavLink to="/personal-website/personal/main/about" 
                             className="btn btn-outline-light" 
                             role="button">
                                 About me</NavLink>
                     <br/><br/>
-                    <NavLink to="/personal/main/connect" 
+                    <NavLink to="/personal-website/main/connect" 
                             className="btn btn-outline-light" 
                             role="button">
                                 Connect with me</NavLink>

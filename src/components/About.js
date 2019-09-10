@@ -12,7 +12,7 @@ import me from '../images/me.jpg';
 class About extends React.Component{
     render() {
         return (
-            <div>
+            <div style={{paddingBottom: '80px'}}>
                 <div class='row justify-content-md-center'>
                     <div class='col-md-2'>
                         <h1 

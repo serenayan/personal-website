@@ -3,13 +3,14 @@ import ReactPlayer from 'react-player';
 import '../css/videoPlayer.css';
 import caltech from '../images/caltech.jpg';
 import magic_leap from '../images/Magic-Leap-Tile.jpg';
+import react_logo from '../images/logo192.png';
 
 class Project extends React.Component{
     render() {
         return(
-            <ul class="list-untyled">
+            <ul class="list-untyled" style={{paddingBottom: '100px'}}>
             <li class="media my-4">
-                <img class="rounded-circle mr-3" src="/logo192.png" alt="React Logo" 
+                <img class="rounded-circle mr-3" src={react_logo} alt="React Logo" 
                 height='200' width='200' style={{marginTop: '70px', backgroundColor:'white'}}/>
                 <div class="media-body" style={{marginTop:'70px'}}>
                 <h3 class="mt-0 mb-1">Personal Website</h3>

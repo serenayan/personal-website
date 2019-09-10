@@ -3,6 +3,7 @@ import React from 'react';
 import '../css/textOverImage.css';
 import '../css/img_modal.css';
 import '../css/carousel.css';
+import image_information from '../images/img_info.json';
 
 import InfiniteCarousel from 'react-leaf-carousel';
 
@@ -24,7 +25,7 @@ class Portfolio extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            img_info: null,
+            img_info: image_information,
             currImg: null,
         };
         this.CreateImage = this.CreateImage.bind(this);
@@ -57,9 +58,9 @@ class Portfolio extends React.Component {
     }
 
     componentDidMount() {
-        $.get("/img_info.json", img_info => {
-            this.setState({ img_info });
-        });
+        // $.get("/img_info.json", img_info => {
+        //     this.setState({ img_info });
+        // });
     }
 
     setCurr = (url) => {
@@ -69,62 +70,59 @@ class Portfolio extends React.Component {
     /* leaf carousel */
     render() {
         let { currImg, img_info} = this.state;
-        if (img_info) {
-            return (
-                <div style={{ paddingBottom: '100px' }}>
-                    <h2
-                        class='d-flex justify-content-center'
-                        style={{ paddingTop: '70px', paddingBottom: '20px', color: 'rgb(75,75,75)' }}
-                    >
-                        Art Gallery</h2>
-                    <InfiniteCarousel
-                        id='carousel'
-                        breakpoints={[
-                            {
-                                breakpoint: 900,
-                                settings: {
-                                    slidesToShow: 2,
-                                    slidesToScroll: 2,
-                                },
+        return (
+            <div style={{ paddingBottom: '100px' }}>
+                <h2
+                    class='d-flex justify-content-center'
+                    style={{ paddingTop: '70px', paddingBottom: '20px', color: 'rgb(75,75,75)' }}
+                >
+                    Art Gallery</h2>
+                <InfiniteCarousel
+                    id='carousel'
+                    breakpoints={[
+                        {
+                            breakpoint: 900,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
                             },
-                        ]}
-                        autoCycle={false}
-                        cycleInterval={3500}
+                        },
+                    ]}
+                    autoCycle={false}
+                    cycleInterval={3500}
 
-                        animationDuration={500}
-                        dots={true}
-                        showSides={true}
-                        sidesOpacity={.5}
-                        sideSize={.15}
-                        slidesToScroll={1}
-                        slidesToShow={4}
-                        scrollOnDevice={true}
-                    >
-                        {this.CreateImage(img0, img_info[0], 450)}
-                        {this.CreateImage(img1, img_info[1], 450)}
-                        {this.CreateImage(img2, img_info[2], 450)}
-                        {this.CreateImage(img3, img_info[3], 450)}
-                        {this.CreateImage(img4, img_info[4], 450)}
-                        {this.CreateImage(img5, img_info[5], 450)}
-                        {this.CreateImage(img6, img_info[6], 450)}
-                        {this.CreateImage(img7, img_info[7], 450)}
-                        {this.CreateImage(img8, img_info[8], 450)}
-                        {this.CreateImage(img9, img_info[9], 450)}
-                    </InfiniteCarousel>
+                    animationDuration={500}
+                    dots={true}
+                    showSides={true}
+                    sidesOpacity={.5}
+                    sideSize={.15}
+                    slidesToScroll={1}
+                    slidesToShow={4}
+                    scrollOnDevice={true}
+                >
+                    {this.CreateImage(img0, img_info[0], 450)}
+                    {this.CreateImage(img1, img_info[1], 450)}
+                    {this.CreateImage(img2, img_info[2], 450)}
+                    {this.CreateImage(img3, img_info[3], 450)}
+                    {this.CreateImage(img4, img_info[4], 450)}
+                    {this.CreateImage(img5, img_info[5], 450)}
+                    {this.CreateImage(img6, img_info[6], 450)}
+                    {this.CreateImage(img7, img_info[7], 450)}
+                    {this.CreateImage(img8, img_info[8], 450)}
+                    {this.CreateImage(img9, img_info[9], 450)}
+                </InfiniteCarousel>
 
 
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                        role="dialog" aria-labelledby="exampleModalCenterTitle"
-                        aria-hidden="true" data-backdrop="true"
-                        ref={ref => this.modalRef = ref}>
-                        <div class="modal-dialog" role="document">
-                            <img class="img-responsive" src={currImg} />
-                        </div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true" data-backdrop="true"
+                    ref={ref => this.modalRef = ref}>
+                    <div class="modal-dialog" role="document">
+                        <img class="img-responsive" src={currImg} />
                     </div>
                 </div>
-            );
-        }
-        else { return (""); }
+            </div>
+        );
     }
 
 }
